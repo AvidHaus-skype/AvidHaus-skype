@@ -1,0 +1,10 @@
+.add__chat {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+.add__chat .addChat__btn {
+  border-radius: 20px;
+}

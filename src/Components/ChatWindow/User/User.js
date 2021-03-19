@@ -3,16 +3,7 @@ import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import "./user.css";
 function User() {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+  const [menu, setMenu] = useState(false);
   return (
     <div className="user">
       <div className="user__info">
@@ -23,11 +14,19 @@ function User() {
         <p className="userName">User Name</p>
         <div className="onlineStatus"></div>
       </div>
-      <Button>
+      <Button
+        onClick={() => {
+          setMenu(!menu);
+        }}
+      >
         <MoreHorizIcon />
       </Button>
 
-      <div className="menu">menu</div>
+      {menu && (
+        <div className="signOut__menu">
+          <Button>Sign Out</Button>
+        </div>
+      )}
     </div>
   );
 }

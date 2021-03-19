@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Input } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons";
+import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 import "./searchBar.css";
 function SearchBar() {
@@ -8,11 +8,20 @@ function SearchBar() {
   return (
     <div className="searchBar">
       <Input
+        value={user}
         onChange={(e) => {
           setUser(e.target.value);
         }}
       />
-      {user ? <SearchIcon /> : <ClearIcon />}
+      {user ? (
+        <ClearIcon
+          onClick={() => {
+            setUser("");
+          }}
+        />
+      ) : (
+        <SearchIcon />
+      )}
     </div>
   );
 }

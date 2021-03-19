@@ -1,8 +1,18 @@
-import React from "react";
-import { Avatar, Button } from "@material-ui/core";
+import React, { useState } from "react";
+import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import "./user.css";
 function User() {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className="user">
       <div className="user__info">
@@ -16,6 +26,8 @@ function User() {
       <Button>
         <MoreHorizIcon />
       </Button>
+
+      <div className="menu">menu</div>
     </div>
   );
 }

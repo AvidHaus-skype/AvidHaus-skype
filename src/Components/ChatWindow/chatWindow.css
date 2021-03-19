@@ -2,7 +2,7 @@
   --grayColor: #eeeeee;
 }
 .chat__window {
-  max-width: 250px;
-  height: 100vh;
+  width: 250px;
+  min-height: 100vh;
   background: var(--grayColor);
 }

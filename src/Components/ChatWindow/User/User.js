@@ -3,6 +3,7 @@ import { Avatar, Button } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import Modal from "react-modal";
 import "./user.css";
+Modal.setAppElement("#root");
 function User() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   return (
@@ -26,13 +27,12 @@ function User() {
         </Button>
 
         <Modal
-          className="signOutModel"
           isOpen={isMenuOpen}
           onRequestClose={() => {
             setMenuOpen(!isMenuOpen);
           }}
         >
-          Sign Out
+          <Button>Sign Out</Button>
         </Modal>
       </div>
     </div>

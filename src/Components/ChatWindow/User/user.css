@@ -11,7 +11,6 @@
   justify-content: space-between;
   padding: 20px;
   cursor: pointer;
-  position: relative;
 }
 .user__info {
   width: 70%;
@@ -32,10 +31,16 @@
   position: absolute;
   bottom: 0;
 }
-.signOut__menu {
+.signOut {
+  position: relative;
+  width: 100%;
+}
+.signOutModel {
+  width: 80px;
+  height: 40px;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  bottom: 0;
-  right: -15%;
-  background: #fff;
-  border: 1px solid black;
 }

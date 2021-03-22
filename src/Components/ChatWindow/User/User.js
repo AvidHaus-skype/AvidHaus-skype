@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import Modal from "react-modal";
 import "./user.css";
@@ -15,15 +15,25 @@ function User() {
         <p className="userName">User Name</p>
         <div className="onlineStatus"></div>
       </div>
-      <Button
-        onClick={() => {
-          setMenu(!menu);
-        }}
-      >
-        <MoreHorizIcon />
-      </Button>
+
       <div className="signOut">
-        <Modal isOpen={isMenuOpen} />
+        <Button
+          onClick={() => {
+            setMenuOpen(!isMenuOpen);
+          }}
+        >
+          <MoreHorizIcon />
+        </Button>
+
+        <Modal
+          className="signOutModel"
+          isOpen={isMenuOpen}
+          onRequestClose={() => {
+            setMenuOpen(!isMenuOpen);
+          }}
+        >
+          Sign Out
+        </Modal>
       </div>
     </div>
   );

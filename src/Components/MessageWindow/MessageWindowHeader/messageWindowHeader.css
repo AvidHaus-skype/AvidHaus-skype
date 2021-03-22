@@ -1,0 +1,13 @@
+.MessageWindowHeader {
+  height: 120px;
+}
+.userStatus {
+  display: flex;
+  align-items: center;
+}
+.onlineStatus {
+  width: 10px;
+  height: 10px;
+  background: #76d275;
+  border-radius: 50%;
+}

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Avatar, Button, Menu, MenuItem } from "@material-ui/core";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import Modal from "react-modal";
 import "./user.css";
 function User() {
-  const [menu, setMenu] = useState(false);
+  const [isMenuOpen, setMenuOpen] = useState(false);
   return (
     <div className="user">
       <div className="user__info">
@@ -21,12 +22,9 @@ function User() {
       >
         <MoreHorizIcon />
       </Button>
-
-      {menu && (
-        <div className="signOut__menu">
-          <Button>Sign Out</Button>
-        </div>
-      )}
+      <div className="signOut">
+        <Modal isOpen={isMenuOpen} />
+      </div>
     </div>
   );
 }

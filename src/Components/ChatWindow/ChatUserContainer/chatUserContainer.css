@@ -1,3 +1,8 @@
+:root {
+  --grayColor: #eeeeee;
+}
 .chatUserContainer {
+  height: 100%;
   overflow-y: scroll;
+  background: var(--grayColor);
 }

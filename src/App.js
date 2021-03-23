@@ -3,7 +3,7 @@ import "./App.css";
 import Login from "./Components/Login/Login";
 import { useState } from "react";
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
   return <div className="App">{user ? <MainWindow /> : <Login />}</div>;
 }
 

@@ -27,6 +27,7 @@ function User() {
         </Button>
 
         <Modal
+          className="signOutModel"
           isOpen={isMenuOpen}
           onRequestClose={() => {
             setMenuOpen(!isMenuOpen);

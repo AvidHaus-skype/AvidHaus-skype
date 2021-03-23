@@ -47,7 +47,7 @@ function Login() {
         <div className="loginBtn">
           <Button
             onClick={handleLogin}
-            style={{ background: "#0080bd", color: "#fff" }}
+            style={{ background: "#6ec6ff", color: "#fff" }}
           >
             Login
           </Button>

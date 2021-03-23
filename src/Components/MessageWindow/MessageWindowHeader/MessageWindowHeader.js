@@ -1,4 +1,5 @@
 import React from "react";
+import "./messageWindowHeader.css";
 
 function MessageWindowHeader() {
   return (

@@ -1,0 +1,22 @@
+.groupNameModel {
+  background: #eeee;
+  height: 100%;
+  width: 100%;
+}
+.groupNameModel__header {
+  display: flex;
+  padding: 10px;
+}
+.groupNameModel__header h1 {
+  text-align: center;
+  width: 100%;
+  margin-right: 50px;
+}
+.groupNameModel__image {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+}
+.groupNameModel__image .imageField {
+  opacity: 0;
+}

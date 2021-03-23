@@ -7,38 +7,47 @@ import GroupModel from "./GroupModel/GroupModel";
 import GroupNameModel from "./GroupNameModel/GroupNameModel";
 
 function AddChat() {
-  const [group, setGroup] = useState(true);
+  const [group, setGroup] = useState(false);
+  const [groupModelName, setGroupModelName] = useState(false);
   return (
     <>
       <div className="add__chat">
         <Button
           className="addChat__btn"
           onClick={() => {
-            setGroup(true);
+            setGroupModelName(true);
           }}
         >
           <Add /> <span>Chat</span>
         </Button>
       </div>
 
-      {/* <Modal
-        isOpen={group}
-        onRequestClose={() => {
-          setGroup(false);
-        }}
-        className="groupModel"
-      >
-        <GroupModel group={setGroup} />
-      </Modal> */}
       <Modal
-        isOpen={group}
+        isOpen={groupModelName}
         onRequestClose={() => {
-          setGroup(false);
+          setGroupModelName(false);
         }}
         className="groupModel"
       >
-        <GroupNameModel group={setGroup} />
+        <GroupNameModel
+          setGroupModelName={setGroupModelName}
+          setGroup={setGroup}
+        />
       </Modal>
+      {
+        <Modal
+          isOpen={group}
+          onRequestClose={() => {
+            setGroup(false);
+          }}
+          className="groupModel"
+        >
+          <GroupModel
+            setGroup={setGroup}
+            setGroupModelName={setGroupModelName}
+          />
+        </Modal>
+      }
     </>
   );
 }

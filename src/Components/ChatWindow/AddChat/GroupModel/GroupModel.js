@@ -5,7 +5,7 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { Button, IconButton, Input } from "@material-ui/core";
 import "./groupModel.css";
 import UserGroupList from "./UserGroupList/UserGroupList";
-function GroupModel({ group }) {
+function GroupModel({ setGroup, setGroupModelName }) {
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="group__model">
@@ -13,14 +13,21 @@ function GroupModel({ group }) {
         <IconButton
           className="cancelGroupBtn"
           onClick={() => {
-            group(false);
+            setGroup(false);
           }}
         >
           <KeyboardBackspaceIcon />
         </IconButton>
         <h1>Create New Group</h1>
 
-        <Button>Done</Button>
+        <Button
+          onClick={() => {
+            setGroup(false);
+            setGroupModelName(false);
+          }}
+        >
+          Done
+        </Button>
       </div>
 
       <div className="groupModel__search">

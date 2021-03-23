@@ -2,21 +2,41 @@
   background: #eeee;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 .groupNameModel__header {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   padding: 10px;
 }
 .groupNameModel__header h1 {
-  text-align: center;
   width: 100%;
+  text-align: center;
   margin-right: 50px;
 }
-.groupNameModel__image {
-  width: 150px;
-  height: 150px;
-  background-color: black;
+.groupNameModel__imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
 }
-.groupNameModel__image .imageField {
-  opacity: 0;
+.groupNameModel__nameContainer {
+  width: 90%;
+}
+.groupNameInputField {
+  width: 100%;
+}
+.groupNameModel__nextIconContainer {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.groupNameModel__nextIconContainer .nextBtn {
+  background-image: linear-gradient(to right, #0069c0, #6ec6ff);
+  color: #fff;
 }

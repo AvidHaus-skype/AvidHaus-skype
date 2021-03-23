@@ -1,15 +1,17 @@
-import { Avatar, IconButton } from "@material-ui/core";
+import { IconButton, Input } from "@material-ui/core";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
-import React from "react";
+import React, { useState } from "react";
 import "./groupNameModel.css";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-function GroupNameModel({ group }) {
+function GroupNameModel({ setGroupModelName, setGroup }) {
+  const [groupName, setGroupName] = useState("");
   return (
     <div className="groupNameModel">
       <div className="groupNameModel__header">
         <IconButton
           onClick={() => {
-            group(false);
+            setGroupModelName(false);
           }}
         >
           <KeyboardBackspaceIcon />
@@ -19,10 +21,30 @@ function GroupNameModel({ group }) {
       </div>
 
       <div className="groupNameModel__imageContainer">
-        <div className="groupNameModel__image">
-          <input type="file" className="imageField" />
-          <Avatar />
-        </div>
+        <input type="file" />
+      </div>
+
+      <div className="groupNameModel__nameContainer">
+        <Input
+          placeholder="Group Name"
+          className="groupNameInputField"
+          value={groupName}
+          onChange={(e) => {
+            setGroupName(e.target.value);
+          }}
+        />
+      </div>
+
+      <div className="groupNameModel__nextIconContainer">
+        <IconButton
+          disabled={!groupName}
+          className={groupName ? "nextBtn" : ""}
+          onClick={() => {
+            setGroup(true);
+          }}
+        >
+          <ArrowForwardIcon />
+        </IconButton>
       </div>
     </div>
   );

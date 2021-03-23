@@ -29,9 +29,7 @@ function Login() {
   return (
     <div className="login">
       <div className="login__container">
-        <div className="login__Logo">
-          <img src={logo} alt="" />
-        </div>
+        <img src={logo} alt="" />
 
         <div className="login__field">
           <TextField

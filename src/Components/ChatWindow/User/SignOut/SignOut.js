@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./signOut.css";
-function SignOut({ setMenuOpen }) {
+function SignOut() {
   return (
     <div className="signOut">
       <div className="signOut__Message">
@@ -10,7 +10,7 @@ function SignOut({ setMenuOpen }) {
 
       <div className="signOut__Btn">
         <Button>Yes</Button>
-        <Button setMenuOpen={false}>No</Button>
+        <Button>No</Button>
       </div>
     </div>
   );

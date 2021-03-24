@@ -34,7 +34,7 @@ function User() {
             setMenuOpen(!isMenuOpen);
           }}
         >
-          <SignOut setMenuOpen={setMenuOpen} />
+          <SignOut />
         </Modal>
       </div>
     </div>

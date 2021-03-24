@@ -1,11 +1,24 @@
-import { IconButton, Input } from "@material-ui/core";
+import { Avatar, IconButton, Input } from "@material-ui/core";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import React, { useState } from "react";
 import "./groupNameModel.css";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 function GroupNameModel({ setGroupModelName, setGroup }) {
+  const [groupPicture, setGroupPicture] = useState("");
   const [groupName, setGroupName] = useState("");
+
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.onload = (e) => {
+        setGroupPicture(e.target.result);
+      };
+
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  };
   return (
     <div className="groupNameModel">
       <div className="groupNameModel__header">
@@ -20,9 +33,10 @@ function GroupNameModel({ setGroupModelName, setGroup }) {
         <h1>New Group Chat</h1>
       </div>
 
-      <div className="groupNameModel__imageContainer">
-        <input type="file" />
-      </div>
+      <label className="groupNameModel__imageContainer">
+        <input type="file" onChange={handleImageChange} />
+        <Avatar src={groupPicture} className="groupProfile" />
+      </label>
 
       <div className="groupNameModel__nameContainer">
         <Input

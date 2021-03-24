@@ -40,3 +40,10 @@
   background-image: linear-gradient(to right, #0069c0, #6ec6ff);
   color: #fff;
 }
+input[type="file"] {
+  display: none;
+}
+.groupNameModel__imageContainer .MuiAvatar-circle {
+  width: 100px;
+  height: 100px;
+}

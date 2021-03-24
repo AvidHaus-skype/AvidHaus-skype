@@ -1,0 +1,8 @@
+.signOut__Btn {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+.signOut__Btn .MuiButtonBase-root {
+  color: white;
+}

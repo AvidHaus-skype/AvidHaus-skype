@@ -2,7 +2,7 @@ import { Avatar, Checkbox } from "@material-ui/core";
 import React, { useState } from "react";
 import "./Usergroup.css";
 
-function UserGroupList() {
+function UserGroupList(group) {
   const [collectUser, setcollectUser] = useState(false);
   return (
     <div
@@ -16,7 +16,7 @@ function UserGroupList() {
           <Avatar />
         </div>
         <div className="userName">
-          <h1>UserName</h1>
+          <h1>user name</h1>
         </div>
       </div>
 

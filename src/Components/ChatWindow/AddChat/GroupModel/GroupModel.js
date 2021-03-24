@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import { Button, IconButton, Input } from "@material-ui/core";
 import "./groupModel.css";
 import UserGroupList from "./UserGroupList/UserGroupList";
+import axios from "axios";
+import { useSelector } from "react-redux";
 function GroupModel({ setGroup, setGroupModelName }) {
+  const [groupList, setGroupList] = useState([]);
+  const data = useSelector((state) => {
+    return state;
+  });
+
+  useEffect(() => {
+    axios
+      .post("http://192.168.0.96:401/bwccrm/getContactsTotal", {
+        campaign_id: data.user.data.campaign_id,
+        user_id: data.user.data.user_id,
+      })
+      .then((res) => {
+        console.log(res);
+        setGroupList(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(groupList);
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="group__model">
@@ -55,18 +77,9 @@ function GroupModel({ setGroup, setGroupModelName }) {
       </div>
 
       <div className="usersGroupList">
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
-        <UserGroupList />
+        {groupList.map((group, id) => (
+          <UserGroupList group={group} key={id} />
+        ))}
       </div>
     </div>
   );

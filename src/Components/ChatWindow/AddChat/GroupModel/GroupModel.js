@@ -7,8 +7,11 @@ import "./groupModel.css";
 import UserGroupList from "./UserGroupList/UserGroupList";
 import axios from "axios";
 import { useSelector } from "react-redux";
+
 function GroupModel({ setGroup, setGroupModelName }) {
   const [groupList, setGroupList] = useState([]);
+  const [searchValue, setSearchValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const data = useSelector((state) => {
     return state;
   });
@@ -16,7 +19,7 @@ function GroupModel({ setGroup, setGroupModelName }) {
   useEffect(() => {
     axios
       .post("http://192.168.0.96:401/bwccrm/getContactsTotal", {
-        campaign_id: data.user.data.campaign_id,
+        campaign_id: inputValue,
         user_id: data.user.data.user_id,
       })
       .then((res) => {
@@ -26,9 +29,8 @@ function GroupModel({ setGroup, setGroupModelName }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-  console.log(groupList);
-  const [inputValue, setInputValue] = useState("");
+  }, [groupList]);
+
   return (
     <div className="group__model">
       <div className="groupModel__header">
@@ -77,9 +79,9 @@ function GroupModel({ setGroup, setGroupModelName }) {
       </div>
 
       <div className="usersGroupList">
-        {groupList.map((group, id) => (
+        {/* {groupList.map((group, id) => (
           <UserGroupList group={group} key={id} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

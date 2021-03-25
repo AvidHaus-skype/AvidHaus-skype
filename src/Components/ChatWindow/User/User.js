@@ -1,20 +1,23 @@
-import React, { useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar, Button } from "@material-ui/core";
 
 import Modal from "react-modal";
 import "./user.css";
-import axios from 'axios'
-import {useSelector,useDispatch} from 'react-redux'
+
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import SignOut from "./SignOut/SignOut";
 
 Modal.setAppElement("#root");
 
 function User() {
-  const data= useSelector(state=> {return state})
-  const dispatch=useDispatch()
-  
+  const data = useSelector((state) => {
+    return state;
+  });
+  const dispatch = useDispatch();
+
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const image =data.user.data.user_picture
+  const image = data.user.data.user_picture;
   return (
     <div className="user">
       <div className="user__info">

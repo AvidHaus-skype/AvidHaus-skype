@@ -16,7 +16,7 @@ function MessageTextContainer() {
       }).then(res=>{
         setchattingdata(res.data.messages)
       })
-  },[])
+  },[data.chat.user_id])
     //  console.log(chattingdata)
   return (
     <div className="messageTextContainer">

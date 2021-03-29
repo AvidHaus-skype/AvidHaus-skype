@@ -3,14 +3,15 @@ import { Add } from "@material-ui/icons";
 import React, { useState } from "react";
 import Modal from "react-modal";
 import "./addChat.css";
-import GroupModel from "./GroupModel/GroupModel";
-import GroupNameModel from "./GroupNameModel/GroupNameModel";
+import GroupListContainer from "./GroupListContainer/GroupListContainer";
+import GroupName from "./GroupName/GroupName";
 
 function AddChat() {
   const [group, setGroup] = useState(false);
   const [groupModelName, setGroupModelName] = useState(false);
+  const [groupModelListContaier, setgroupModelListContaier] = useState(false);
   const [passGroupName, setPassGroupName] = useState("");
-  const [passGroupPicture, setPassGroupPicture] = useState();
+  const [passGroupPicture, setPassGroupPicture] = useState("");
 
   return (
     <>
@@ -32,29 +33,28 @@ function AddChat() {
         }}
         className="groupModel"
       >
-        <GroupNameModel
+        <GroupName
           setGroupModelName={setGroupModelName}
-          setGroup={setGroup}
+          setgroupModelListContaier={setgroupModelListContaier}
           setPassGroupName={setPassGroupName}
           setPassGroupPicture={setPassGroupPicture}
         />
       </Modal>
-      {
-        <Modal
-          isOpen={group}
-          onRequestClose={() => {
-            setGroup(false);
-          }}
-          className="groupModel"
-        >
-          <GroupModel
-            setGroup={setGroup}
-            setGroupModelName={setGroupModelName}
-            passGroupName={passGroupName}
-            passGroupPicture={passGroupPicture}
-          />
-        </Modal>
-      }
+
+      <Modal
+        isOpen={groupModelListContaier}
+        onRequestClose={() => {
+          setgroupModelListContaier(false);
+        }}
+        className="groupModel"
+      >
+        <GroupListContainer
+          setgroupModelListContaier={setgroupModelListContaier}
+          setGroupModelName={setGroupModelName}
+          passGroupName={passGroupName}
+          passGroupPicture={passGroupPicture}
+        />
+      </Modal>
     </>
   );
 }

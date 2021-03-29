@@ -13,14 +13,14 @@ function MessageInput() {
   const data=useSelector(state=>{return state})
 
   // console.log(data.chat)
-  // console.log(data.chat)
+  console.log(data.chat)
 
   const SendMessage=()=>{
     return axios.post('http://192.168.0.96:401/bwccrm/sendMessage',{
       user_id:data.user.data.user_id,
       loginuser_id: data.user.data.user_id,
-      message_to: data.chat.last_msg.message_to,
-      message_body: data.chat.last_msg.message_body
+      message_to: data.chat.user_id,
+      message_body: message
     }).then(res=>{
       console.log(res)
     })

@@ -1,31 +1,33 @@
-import { Button, Input, TextField } from "@material-ui/core";
-import React, { useState} from "react";
+import { Button, TextField } from "@material-ui/core";
+import React, { useState } from "react";
 import "./login.css";
 import logo from "../../Assets/Bizz World Logo.png";
-import {useSelector,useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import { LoginNow } from "../../Redux/Action";
-import axios from 'axios'
-
-
 
 function Login() {
-  const data= useSelector(state=> {return state})
-  const dispatch=useDispatch()
+  const data = useSelector((state) => {
+    return state;
+  });
+  const dispatch = useDispatch();
 
-    // const LoginNow=async()=>{
-    //   const api=await axios.post('http://192.168.0.96:401/bwccrm/login',{
-    //         email:Email,
-    //         password:Password
-    //     })
-    //     // const data= await api.json()
-    //     console.log(api.data)
-    // }
-  
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [checkEmail, setCheckEmail] = useState(false);
+  const [checkPassword, setCheckPassword] = useState(false);
 
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
-
-    
+  const handleLogin = () => {
+    if (Email === "") {
+      setCheckEmail(true);
+    } else {
+      setCheckEmail(false);
+    }
+    if (Password === "") {
+      setCheckPassword(true);
+    } else {
+      setCheckPassword(false);
+    }
+  };
   return (
     <div className="login">
       <div className="login__container">
@@ -36,25 +38,31 @@ function Login() {
             name={Email}
             label="Email"
             value={Email}
-            onChange={e=> setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
+            error={checkEmail}
           />
 
           <TextField
             name={Password}
             label="Password"
             value={Password}
-            onChange={e=>setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
+            error={checkPassword}
           />
         </div>
-        {/* {data.user? data.user?.data?.message:''} */}
+
         <div className="loginBtn">
           <Button
-            onClick={()=>dispatch(LoginNow({Email,Password}))}
-            style={{ background: "#0080bd", color: "#fff" }}
+            onClick={() => dispatch(LoginNow({ Email, Password }))}
+            style={{
+              background: "#feb318",
+              color: "#fff",
+              width: "100%",
+              textDecoration: "none",
+            }}
           >
             Login
           </Button>
-          
         </div>
       </div>
     </div>

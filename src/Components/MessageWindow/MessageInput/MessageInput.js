@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import "./MessageInput.css";
 import SendIcon from "@material-ui/icons/Send";
 import AttachmentIcon from "@material-ui/icons/Attachment";
-import { Button } from "@material-ui/core";
+import { Button, Input } from "@material-ui/core";
 function MessageInput() {
   const [message, setMessage] = useState("");
-  const inputFile = useRef(null);
+  const [attach, setAttach] = useState();
 
   const getAttchment = () => {};
   return (
@@ -17,6 +17,7 @@ function MessageInput() {
           onChange={(e) => {
             setMessage(e.target.value);
           }}
+          placeholder="Type a message"
         />
       </div>
       {message ? (
@@ -24,9 +25,27 @@ function MessageInput() {
           <SendIcon />
         </Button>
       ) : (
-        <Button className="sendBtn">
-          <AttachmentIcon onClick={getAttchment} />
-        </Button>
+        <label
+          style={{
+            background: "#eeeeee",
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "Center",
+          }}
+        >
+          <AttachmentIcon />
+
+          <input
+            type="file"
+            multiple
+            onChange={(e) => {
+              setAttach(e.target.files);
+            }}
+          />
+        </label>
       )}
     </div>
   );

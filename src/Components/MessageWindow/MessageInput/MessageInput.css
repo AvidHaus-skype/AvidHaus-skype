@@ -2,14 +2,13 @@
 .messageInput {
   width: calc(100% - 250px);
   background: #fff;
-  height: 12vh;
+  height: 10vh;
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 0;
 }
-
 .inputField__container {
   width: 80%;
   height: 50px;
@@ -32,11 +31,11 @@
 }
 
 .messageInput .MuiButton-root {
-  border-radius: 50% !important;
   background-image: linear-gradient(to right, #0069c0, #6ec6ff);
-  width: 40px !important;
-  height: 40px;
-  color: #fff !important;
+  width: 50px !important;
+  height: 50px;
+  border-radius: 50% !important;
+  color: #fff;
 }
 
 .sendBtn:hover {

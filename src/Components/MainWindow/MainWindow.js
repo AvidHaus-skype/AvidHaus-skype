@@ -15,7 +15,7 @@ function MainWindow() {
   return (
     <div className="main__window">
       <ChatWindow />
-      {data.chat ? <MessageWindow /> : <Welcome />}
+      {data.chat || chat ? <MessageWindow /> : <Welcome />}
     </div>
   );
 }

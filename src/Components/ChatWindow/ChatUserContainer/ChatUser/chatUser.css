@@ -13,9 +13,10 @@
   margin-right: 10px;
 }
 .chatUser__details h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .chatUser__details p {
   font-size: 0.8rem;
+  color: black;
 }

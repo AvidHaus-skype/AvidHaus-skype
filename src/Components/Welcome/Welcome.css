@@ -1,6 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:ital,wght@1,300&display=swap");
 .welcome {
   width: 100%;
   height: 100vh;
+  font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +13,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+.User__picture .MuiAvatar-circle {
+  width: 80px;
+  height: 80px;
+}
+.user__profession {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .startConvo__btn .MuiButtonBase-root {
   color: white !important;

@@ -6,17 +6,20 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  font-family: "Open Sans", sans-serif;
 }
 .groupNameModel__header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  height: 10%;
   padding: 10px;
 }
 .groupNameModel__header h1 {
   width: 100%;
   text-align: center;
   margin-right: 50px;
+  font-size: 1.3rem;
 }
 .groupNameModel__imageContainer {
   display: flex;
@@ -44,6 +47,6 @@ input[type="file"] {
   display: none;
 }
 .groupNameModel__imageContainer .MuiAvatar-circle {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }

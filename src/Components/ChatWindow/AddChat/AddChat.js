@@ -9,6 +9,9 @@ import GroupNameModel from "./GroupNameModel/GroupNameModel";
 function AddChat() {
   const [group, setGroup] = useState(false);
   const [groupModelName, setGroupModelName] = useState(false);
+  const [passGroupName, setPassGroupName] = useState("");
+  const [passGroupPicture, setPassGroupPicture] = useState();
+
   return (
     <>
       <div className="add__chat">
@@ -32,6 +35,8 @@ function AddChat() {
         <GroupNameModel
           setGroupModelName={setGroupModelName}
           setGroup={setGroup}
+          setPassGroupName={setPassGroupName}
+          setPassGroupPicture={setPassGroupPicture}
         />
       </Modal>
       {
@@ -45,6 +50,8 @@ function AddChat() {
           <GroupModel
             setGroup={setGroup}
             setGroupModelName={setGroupModelName}
+            passGroupName={passGroupName}
+            passGroupPicture={passGroupPicture}
           />
         </Modal>
       }

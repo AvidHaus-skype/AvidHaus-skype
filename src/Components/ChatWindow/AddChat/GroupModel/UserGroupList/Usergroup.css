@@ -9,7 +9,7 @@
   margin: 10px 0px;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
 }
 .userGroupList:hover {
   background: #e0e0e0;
@@ -17,9 +17,13 @@
 .userDetails {
   display: flex;
 }
+
 .userPicture {
   margin-right: 10px;
 }
-.userName {
-  font-family: 1.4rem;
+.userGroupList .userName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
 }

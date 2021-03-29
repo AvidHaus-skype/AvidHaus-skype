@@ -41,7 +41,6 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             error={checkEmail}
           />
-          {/* //waleed here */}
 
           <TextField
             name={Password}

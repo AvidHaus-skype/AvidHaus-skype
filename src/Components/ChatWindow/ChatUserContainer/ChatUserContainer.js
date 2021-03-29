@@ -17,7 +17,7 @@ function ChatUserContainer() {
   const data= useSelector(state=> {return state})
   const dispatch=useDispatch()
   const [ContactData, setContactData] = useState([]);
-  console.log(ContactData)
+  
   return (
     <div className="chatUserContainer">
       {!ContactData.last_msg ? ContactData.map((item,id)=>(

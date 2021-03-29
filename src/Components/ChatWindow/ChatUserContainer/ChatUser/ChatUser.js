@@ -4,18 +4,19 @@ import {useSelector,useDispatch} from 'react-redux'
 import {Userid} from '../../../../Redux/Action'
 import "./chatUser.css";
 
-function ChatUser(contacts) {
+function ChatUser(props) {
   
   const data= useSelector(state=> {return state})
   const dispatch=useDispatch()
   
-  const image=contacts.users.user_picture
+  const image=props.users.user_picture
 
-  const [userid,setuserid]=useState()
+  const [user_id,setuserid]=useState([])
   const switchToConve=(e)=>{
         e.preventDefault()
-        setuserid(contacts)
-        console.log(userid)
+        setuserid(props)
+        // console.log(user_id)
+        dispatch(Userid(user_id))
   }
   return (
     <div className="chatUser" onClick={switchToConve} >
@@ -25,8 +26,8 @@ function ChatUser(contacts) {
         />
       </div>
       <div className="chatUser__details">
-        <h3>{contacts.users.user_name}</h3>
-        <p>{contacts.users.last_msg.message_body}</p>
+        <h3>{props.users.user_name}</h3>
+        <p>{props.users.last_msg.message_body}</p>
       </div>
     </div>
   );

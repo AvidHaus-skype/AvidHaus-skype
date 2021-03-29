@@ -14,7 +14,7 @@ export function LoginNow({Email,Password}) {
         });
     };
 }
-export function Userid({user_id}){
+export function Userid(user_id){
     return function(dispatch){
         // const {contacts}={userid}
         dispatch({

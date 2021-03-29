@@ -8,11 +8,11 @@ function MessageWindowHeader() {
   return (
     <div className="MessageWindowHeader">
       <div className="userName">
-        <h2>{data.chat.users.user_name}</h2>
+        <h2>{data.chat.user_name}</h2>
       </div>
       <div className="userStatus">
-        <div className="onlineStatus"></div>
-        <p>{data.chat.users.user_loginstatus}</p>
+        <div className={data.chat.user_loginstatus ? "onlineStatus" : ""}></div>
+        <p>{data.chat.user_loginstatus}</p>
       </div>
     </div>
   );

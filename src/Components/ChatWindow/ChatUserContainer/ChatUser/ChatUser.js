@@ -11,12 +11,11 @@ function ChatUser(props) {
   
   const image=props.users.user_picture
 
-  const [user_id,setuserid]=useState([])
+  
   const switchToConve=(e)=>{
         e.preventDefault()
-        setuserid(props)
-        // console.log(user_id)
-        dispatch(Userid(user_id))
+              
+        dispatch(Userid(props.users))
   }
   return (
     <div className="chatUser" onClick={switchToConve} >

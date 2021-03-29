@@ -5,7 +5,7 @@ import {useSelector} from 'react-redux'
 function UserMessage(props) {
   const data=useSelector(state=>{return state})
   const admin=data.user.data.user_id
-  // console.log(props.sender.message_from)
+  // console.log(props.sender.message_body)
   return (
     <div 
     className={props.sender.message_from !==admin ? "senderMessage " : "userMessage"}
@@ -23,7 +23,7 @@ function UserMessage(props) {
           </div>
 
           <div className="userMessage__time">
-            <p>12:00 pm</p>
+            <p>{props.sender.fullTime}</p>
           </div>
         </div>
 
@@ -34,9 +34,7 @@ function UserMessage(props) {
               : "senderMessage__text recieverMessage__text"
           }
         >
-          The hexadecimal color code #00aff0 is a shade of cyan. In the RGB
-          color model #00aff0 is comprised of 0% red, 68.63% green and 94.12%
-          blue
+          {props.sender.message_body}
         </div>
       </div>
     </div>

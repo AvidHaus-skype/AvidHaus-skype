@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux'
 
 function MessageWindowHeader() {
   const data = useSelector(state=>{return state})
-  console.log(data.chat)
+  
   return (
     <div className="MessageWindowHeader">
       <div className="userName">

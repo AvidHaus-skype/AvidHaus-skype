@@ -13,7 +13,7 @@ function MessageInput() {
   const data=useSelector(state=>{return state})
 
   // console.log(data.chat)
-  console.log(data.chat)
+  // console.log(data.chat)
 
   const SendMessage=()=>{
     return axios.post('http://192.168.0.96:401/bwccrm/sendMessage',{

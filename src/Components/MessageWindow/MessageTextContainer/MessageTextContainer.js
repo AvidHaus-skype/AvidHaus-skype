@@ -10,9 +10,9 @@ function MessageTextContainer() {
   
   useEffect(()=>{
       axios.post('http://192.168.0.96:401/bwccrm/fetchMessage',{
-        from_id:data.user.data.user_id,
+        from_id:data.Auth.data.user_id,
         to_id:data.chat.user_id,
-        user_id:data.user.data.user_id
+        user_id:data.Auth.data.user_id
       }).then(res=>{
         setchattingdata(res.data.messages)
       })

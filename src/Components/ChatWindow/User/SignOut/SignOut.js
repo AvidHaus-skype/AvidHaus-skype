@@ -1,7 +1,16 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./signOut.css";
+import{useSelector} from 'react-redux'
+
 function SignOut() {
+  const data=useSelector(state=>{return state})
+
+  const signout=()=>{
+    
+    console.log(localStorage.removeItem("user",data.Auth))
+  }
+
   return (
     <div className="signOut">
       <div className="signOut__Message">
@@ -9,7 +18,7 @@ function SignOut() {
       </div>
 
       <div className="signOut__Btn">
-        <Button>Yes</Button>
+        <Button onClick={signout}>Yes</Button>
         <Button>No</Button>
       </div>
     </div>

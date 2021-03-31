@@ -10,12 +10,12 @@ function App() {
     return state;
   });
  const dispatch = useDispatch();
-  const auth= JSON.parse(localStorage.getItem("user"));
+  // const auth= ;
 
     useEffect(()=>{
-      {dispatch(Auth(auth))}
+      {dispatch(Auth(JSON.parse(localStorage.getItem("user"))))}
     },[])
-    // console.log(data.user.data)
+    // console.log('complete auth data',data.Auth)
     return( 
             <div className="App">
               {data.Auth? <MainWindow /> : <Login />}

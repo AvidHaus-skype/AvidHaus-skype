@@ -14,7 +14,7 @@ function MessageInput() {
   });
 
   // console.log(data.chat)
-  console.log(data.chat);
+  // console.log(data.chat)
 
   const SendMessage = () => {
     return axios

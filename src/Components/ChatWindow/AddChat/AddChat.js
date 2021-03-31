@@ -7,7 +7,6 @@ import GroupListContainer from "./GroupListContainer/GroupListContainer";
 import GroupName from "./GroupName/GroupName";
 
 function AddChat() {
-  const [group, setGroup] = useState(false);
   const [groupModelName, setGroupModelName] = useState(false);
   const [groupModelListContaier, setgroupModelListContaier] = useState(false);
   const [passGroupName, setPassGroupName] = useState("");
@@ -38,6 +37,7 @@ function AddChat() {
           setgroupModelListContaier={setgroupModelListContaier}
           setPassGroupName={setPassGroupName}
           setPassGroupPicture={setPassGroupPicture}
+          passGroupPicture={passGroupPicture}
         />
       </Modal>
 

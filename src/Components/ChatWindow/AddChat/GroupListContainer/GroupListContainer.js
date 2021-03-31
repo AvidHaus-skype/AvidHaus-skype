@@ -4,7 +4,7 @@ import { Button, Input, Checkbox, Avatar } from "@material-ui/core";
 import "./groupListContainer.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
-function GroupMemebers({ members }) {
+function GroupMemebers({ members, userId, setUserId }) {
   const [selectMember, setSelectMember] = useState(false);
 
   //   if (selectMember) {
@@ -16,6 +16,7 @@ function GroupMemebers({ members }) {
       className="groupMembers"
       onClick={() => {
         setSelectMember(!selectMember);
+        setUserId([...userId, members.user_id]);
       }}
     >
       <div className="groupMemberInfo">
@@ -43,6 +44,7 @@ function GroupListContainer({
 }) {
   const [groupMember, setGroupMember] = useState("");
   const [memberList, setMemberList] = useState([]);
+  const [userId, setUserId] = useState([]);
 
   const data = useSelector((state) => {
     return state;
@@ -52,7 +54,7 @@ function GroupListContainer({
     axios
       .post("http://192.168.0.96:401/bwccrm/getContactsTotal", {
         campaign_id: 1,
-        user_id: data.user.data.user_id,
+        user_id: data.Auth.data.user_id,
       })
       .then((res) => {
         setMemberList(res.data.contacts);
@@ -62,6 +64,25 @@ function GroupListContainer({
       });
   }, []);
 
+  const HandleGroup = () => {
+    let formData = new FormData();
+
+    formData.append("loginuser_id", data.Auth.data.user_id);
+    formData.append("user_id", data.Auth.data.user_id);
+    formData.append("group_name", passGroupName);
+    formData.append("group_image", passGroupPicture);
+    formData.append("members[]", userId);
+    axios
+      .post("http://192.168.0.96:401/bwccrm/createGroup", formData)
+      .then((res) => {
+        console.log(res);
+        alert(res.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(err);
+      });
+  };
   return (
     <div className="groupListContainer">
       <div className="groupListContainer__header">
@@ -77,8 +98,7 @@ function GroupListContainer({
           onClick={() => {
             setGroupModelName(false);
             setgroupModelListContaier(false);
-            console.log(passGroupPicture);
-            console.log(passGroupName);
+            HandleGroup();
           }}
         >
           Done
@@ -94,8 +114,13 @@ function GroupListContainer({
         />
       </div>
       <div className="groupListContainer__memberList">
-        {memberList.map((members) => (
-          <GroupMemebers members={members} />
+        {memberList.map((members, id) => (
+          <GroupMemebers
+            members={members}
+            userId={userId}
+            setUserId={setUserId}
+            key={id}
+          />
         ))}
       </div>
     </div>

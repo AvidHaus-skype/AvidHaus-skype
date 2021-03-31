@@ -7,8 +7,8 @@ function ChatUserContainer() {
   useEffect(()=>{
     return(
       axios.post('http://192.168.0.96:401/bwccrm/getContactsUser',{
-        loginuser_id : data.user.data.user_id,
-        user_id : data.user.data.user_id
+        loginuser_id : data.Auth.data.user_id,
+        user_id : data.Auth.data.user_id
       }).then(res =>{
         setContactData(res.data.contacts)
       })

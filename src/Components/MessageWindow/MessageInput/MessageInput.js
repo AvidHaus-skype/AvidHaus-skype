@@ -12,8 +12,6 @@ function MessageInput() {
   const [attach, setAttach] = useState();
   const data=useSelector(state=>{return state})
 
-  // console.log(data.chat)
-  // console.log(data.chat)
 
   const SendMessage=()=>{
     return axios.post('http://192.168.0.96:401/bwccrm/sendMessage',{
@@ -22,10 +20,10 @@ function MessageInput() {
       message_to: data.chat.user_id,
       message_body: message
     }).then(res=>{
-      console.log(res)
-    })
+       console.log(res)
+    }).catch(err=> console.log(err))
   }
-
+  
   const getAttchment = () => {};
   return (
     <div className="messageInput">

@@ -11,7 +11,7 @@ function MainWindow() {
   // const [chat, setChat] = useState(false);
 
   const [chat, setChat] = useState(true);
-
+  
   return (
     <div className="main__window">
       <ChatWindow />

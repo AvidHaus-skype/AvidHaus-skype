@@ -65,30 +65,23 @@ function GroupListContainer({
   }, []);
 
   const HandleGroup = () => {
-    const imgData = new FormData();
-    imgData.append("group_image", passGroupPicture);
+    let formData = new FormData();
+
+    formData.append("loginuser_id", data.user.data.user_id);
+    formData.append("user_id", data.user.data.user_id);
+    formData.append("group_name", passGroupName);
+    formData.append("group_image", passGroupPicture);
+    formData.append("members[]", userId);
     axios
-      .post("http://192.168.0.96:401/bwccrm/createGroup", {
-        loginuser_id: data.user.data.user_id,
-        user_id: data.user.data.user_id,
-        group_name: passGroupName,
-        imgData,
-        members: userId,
-      })
+      .post("http://192.168.0.96:401/bwccrm/createGroup", formData)
       .then((res) => {
         console.log(res);
         alert(res.data.message);
       })
       .catch((err) => {
         console.log(err);
+        alert(err);
       });
-    console.log({
-      loginuser_id: data.user.data.user_id,
-      user_id: data.user.data.user_id,
-      group_name: passGroupName,
-      group_image: data,
-      members: userId,
-    });
   };
   return (
     <div className="groupListContainer">

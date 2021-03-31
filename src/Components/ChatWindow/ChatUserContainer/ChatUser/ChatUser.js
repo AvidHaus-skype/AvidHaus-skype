@@ -14,7 +14,6 @@ function ChatUser(props) {
 
   const switchToConve = (e) => {
     e.preventDefault();
-
     dispatch(Userid(props.users));
   };
   return (

@@ -13,19 +13,6 @@ function MessageInput() {
     return state;
   });
 
-  const SendMessage = () => {
-    return axios
-      .post("http://192.168.0.96:401/bwccrm/sendMessage", {
-        user_id: data.Auth.data.user_id,
-        loginuser_id: data.Auth.data.user_id,
-        message_to: data.chat.user_id,
-        message_body: message,
-      })
-      .then((res) => {
-        console.log(res);
-      });
-  };
-
   const getAttchment = () => {};
   return (
     <div className="messageInput">
@@ -40,7 +27,7 @@ function MessageInput() {
         />
       </div>
       {message ? (
-        <Button className="sendBtn" onClick={SendMessage}>
+        <Button className="sendBtn">
           <SendIcon />
         </Button>
       ) : (

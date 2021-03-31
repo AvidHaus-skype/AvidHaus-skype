@@ -17,7 +17,7 @@ function User() {
   const dispatch = useDispatch();
 
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const image = data.user.data.user_picture;
+  const image = data.Auth.data.user_picture;
   return (
     <div className="user">
       <div className="user__info">
@@ -25,7 +25,7 @@ function User() {
           src={`http://192.168.0.96:401/bwccrm/public/userpicture/${image}`}
           className="userImg"
         />
-        <p className="userName">{data.user.data.user_name}</p>
+        <p className="userName">{data.Auth.data.user_name}</p>
         <div className="onlineStatus"></div>
       </div>
 

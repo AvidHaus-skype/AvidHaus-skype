@@ -54,7 +54,7 @@ function GroupListContainer({
     axios
       .post("http://192.168.0.96:401/bwccrm/getContactsTotal", {
         campaign_id: 1,
-        user_id: data.user.data.user_id,
+        user_id: data.Auth.data.user_id,
       })
       .then((res) => {
         setMemberList(res.data.contacts);
@@ -67,8 +67,8 @@ function GroupListContainer({
   const HandleGroup = () => {
     let formData = new FormData();
 
-    formData.append("loginuser_id", data.user.data.user_id);
-    formData.append("user_id", data.user.data.user_id);
+    formData.append("loginuser_id", data.Auth.data.user_id);
+    formData.append("user_id", data.Auth.data.user_id);
     formData.append("group_name", passGroupName);
     formData.append("group_image", passGroupPicture);
     formData.append("members[]", userId);

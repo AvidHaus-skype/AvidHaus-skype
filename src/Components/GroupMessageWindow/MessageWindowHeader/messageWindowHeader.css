@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Open+Sans+Condensed:ital,wght@1,300&display=swap");
+.MessageWindowHeader {
+  height: 10vh;
+  font-family: "Open Sans", sans-serif;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.userStatus {
+  display: flex;
+  align-items: center;
+}
+.userStatus {
+  font-size: 0.7rem;
+  font-weight: 900;
+  margin-top: 2px;
+}
+.onlineStatus {
+  width: 10px;
+  height: 10px;
+  background: #76d275;
+  border-radius: 50%;
+  margin-right: 5px;
+}

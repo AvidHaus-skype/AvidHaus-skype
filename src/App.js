@@ -15,7 +15,7 @@ function App() {
     useEffect(()=>{
       {dispatch(Auth(JSON.parse(localStorage.getItem("user"))))}
     },[])
-    // console.log('complete auth data',data.Auth)
+    // console.log('complete auth data',data.Auth.message)
     return( 
             <div className="App">
               {data.Auth? <MainWindow /> : <Login />}

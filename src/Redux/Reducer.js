@@ -10,8 +10,10 @@ export default function Reducer(state = initstate, action) {
     case "chatting":
       return { ...state,chat: action.payload };
     case 'Auth':
+      return {...state,Auth: action.payload} 
+    case 'Auth':
       return {...state,Auth: action.payload}      
-    default:
-      return state;
+       default:
+          return state;
   }
 }

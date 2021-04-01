@@ -16,7 +16,7 @@ function MainWindow() {
   return (
     <div className="main__window">
       <ChatWindow />
-      {data.chat ? <MessageWindow /> : <GroupMessageWindow />}
+      {data.chat ? <MessageWindow /> : <Welcome />}
 
       {/* {() => {
         let window;

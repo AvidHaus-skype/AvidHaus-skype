@@ -13,23 +13,6 @@ function MessageTextContainer() {
   const [chattingdata, setchattingdata] = useState([]);
   const [message, setMessage] = useState("");
 
-  useEffect(()=>{
-    var pusher = new Pusher('f30ce11a6ce537110adc', {
-      cluster: 'ap2',
-      useTLS : true
-    });
-    
-    Pusher.logToConsole = true;
-    
-    var channel = pusher.subscribe('bwccrm-chat');
-        channel.bind('messaging', function(data) {
-          // alert(JSON.stringify(data));
-          const message_array =chattingdata
-          message_array.push(data)
-          setchattingdata(message_array)
-        });
-    
-  },[])
 
   useEffect(() => {
     axios
@@ -40,9 +23,10 @@ function MessageTextContainer() {
       })
       .then((res) => {
         setchattingdata(res.data.messages);
+        
       });
   }, [data.chat.user_id]);
-  //  console.log(chattingdata)
+  
   return (
     <div className="messageTextContainer">
       {chattingdata.map((item, id) => {

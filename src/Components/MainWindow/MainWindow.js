@@ -11,24 +11,20 @@ function MainWindow() {
   });
   // const [chat, setChat] = useState(false);
   const [groupChat, setGroupChat] = useState(false);
-  const [chat, setChat] = useState(true);
 
+  const SideWindow = () => {
+    if (data.chat) {
+      return <MessageWindow />;
+    } else if (groupChat) {
+      return <GroupMessageWindow setGroupChat={setGroupChat} />;
+    } else {
+      return <Welcome />;
+    }
+  };
   return (
     <div className="main__window">
       <ChatWindow />
-      {data.chat ? <MessageWindow /> : <GroupMessageWindow />}
-
-      {/* {() => {
-        let window;
-        if (data.chat) {
-          window = <MessageWindow />;
-        } else if (groupChat) {
-          window = <GroupMessageWindow />;
-        } else {
-          window = <Welcome />;
-        }
-        return window;
-      }} */}
+      <SideWindow />
     </div>
   );
 }

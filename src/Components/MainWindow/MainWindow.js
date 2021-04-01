@@ -16,7 +16,7 @@ function MainWindow() {
     if (data.chat) {
       return <MessageWindow />;
     } else if (groupChat) {
-      return <GroupMessageWindow setGroupChat={setGroupChat} />;
+      return <GroupMessageWindow />;
     } else {
       return <Welcome />;
     }

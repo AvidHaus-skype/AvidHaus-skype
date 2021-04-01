@@ -42,10 +42,10 @@ function User() {
           className="signOutModel"
           isOpen={isMenuOpen}
           onRequestClose={() => {
-            setMenuOpen(!isMenuOpen);
+            setMenuOpen(false);
           }}
         >
-          <SignOut />
+          <SignOut isMenuOpen={isMenuOpen} setMenuOpen={setMenuOpen} />
         </Modal>
       </div>
     </div>

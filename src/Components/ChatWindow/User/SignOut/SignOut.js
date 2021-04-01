@@ -1,15 +1,16 @@
 import { Button } from "@material-ui/core";
 import React from "react";
 import "./signOut.css";
-import{useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
-function SignOut() {
-  const data=useSelector(state=>{return state})
+function SignOut({ setMenuOpen }) {
+  const data = useSelector((state) => {
+    return state;
+  });
 
-  const signout=()=>{
-    
-    console.log(localStorage.removeItem("user",data.Auth))
-  }
+  const signout = () => {
+    console.log(localStorage.removeItem("user", data.Auth));
+  };
 
   return (
     <div className="signOut">

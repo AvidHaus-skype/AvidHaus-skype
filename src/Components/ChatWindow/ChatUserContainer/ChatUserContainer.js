@@ -40,12 +40,16 @@ function ChatUserContainer() {
 
   return (
     <div className="chatUserContainer">
-      {groupList.map((list, id) => {
-        return <ChatGroup group={list} key={id} />;
-      })}
-      {!ContactData.last_msg
-        ? ContactData.map((item, id) => <ChatUser users={item} key={id} />)
-        : "NO CHATS ARE AVAILABLE"}
+      <div className="group">
+        {groupList.map((list, id) => {
+          return <ChatGroup group={list} key={id} />;
+        })}
+      </div>
+      <div className="user">
+        {!ContactData.last_msg
+          ? ContactData.map((item, id) => <ChatUser users={item} key={id} />)
+          : "NO CHATS ARE AVAILABLE"}
+      </div>
     </div>
   );
 }

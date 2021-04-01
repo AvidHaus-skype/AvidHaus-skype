@@ -37,7 +37,7 @@ export function groupChat(group){
     return function(dispatch){
         
         dispatch({
-            type: 'Auth',
+            type: 'groupChat',
             payload: group
         })
     }

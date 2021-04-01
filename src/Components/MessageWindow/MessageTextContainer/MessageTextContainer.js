@@ -13,8 +13,7 @@ function MessageTextContainer() {
   const [chattingdata, setchattingdata] = useState([]);
   const [message, setMessage] = useState("");
 
-
-  useEffect(() => {
+  useEffect(()=>{
     var pusher = new Pusher('f30ce11a6ce537110adc', {
       cluster: 'ap2',
       useTLS : true
@@ -29,7 +28,10 @@ function MessageTextContainer() {
           message_array.push(data)
           setchattingdata(message_array)
         });
-        
+    
+  },[])
+
+  useEffect(() => {
     axios
       .post("http://192.168.0.96:401/bwccrm/fetchMessage", {
         from_id: data.Auth.data.user_id,

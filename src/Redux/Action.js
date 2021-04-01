@@ -26,10 +26,19 @@ export function Userid(user_id){
 }
 export function Auth(auth){
     return function(dispatch){
-        // const auth=localStorage.getItem('user',JSON.stringify(Auth))
+        
         dispatch({
             type: 'Auth',
             payload: auth
+        })
+    }
+}
+export function groupChat(group){
+    return function(dispatch){
+        
+        dispatch({
+            type: 'Auth',
+            payload: group
         })
     }
 }

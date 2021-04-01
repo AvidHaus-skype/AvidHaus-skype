@@ -10,12 +10,14 @@ function MainWindow() {
     return state;
   });
   // const [chat, setChat] = useState(false);
-  const [groupChat, setGroupChat] = useState(false);
+  // const [groupChat, setGroupChat] = useState(false);
 
+    console.log(data.groupChat)
+    
   const SideWindow = () => {
     if (data.chat) {
       return <MessageWindow />;
-    } else if (groupChat) {
+    } else if (data.groupChat) {
       return <GroupMessageWindow />;
     } else {
       return <Welcome />;
@@ -24,23 +26,7 @@ function MainWindow() {
   return (
     <div className="main__window">
       <ChatWindow />
-<<<<<<< HEAD
-      {data.chat ? <MessageWindow /> : <Welcome />}
-
-      {/* {() => {
-        let window;
-        if (data.chat) {
-          window = <MessageWindow />;
-        } else if (groupChat) {
-          window = <GroupMessageWindow />;
-        } else {
-          window = <Welcome />;
-        }
-        return window;
-      }} */}
-=======
       <SideWindow />
->>>>>>> refs/remotes/origin/main
     </div>
   );
 }

@@ -19,7 +19,7 @@ function ChatUserContainer() {
       })
       .then((res) => {
         setContactData(res.data.contacts);
-        console.log(res.data.contacts);
+        console.log('available contacts',res.data.contacts);
       });
   }, []);
 
@@ -31,7 +31,7 @@ function ChatUserContainer() {
       })
       .then((res) => {
         setGroupList(res.data);
-        console.log(res.data);
+        console.log('available groups',res.data);
       })
       .catch((err) => {
         console.log("group error", err);
@@ -40,12 +40,13 @@ function ChatUserContainer() {
 
   return (
     <div className="chatUserContainer">
-      {groupList.map((list, id) => {
-        return <ChatGroup group={list} key={id} />;
-      })}
-      {!ContactData.last_msg
+       {!ContactData.last_msg
         ? ContactData.map((item, id) => <ChatUser users={item} key={id} />)
         : "NO CHATS ARE AVAILABLE"}
+      {groupList.map((list, id) => {
+        return <ChatGroup groups={list} key={id} />;
+      })}
+     
     </div>
   );
 }

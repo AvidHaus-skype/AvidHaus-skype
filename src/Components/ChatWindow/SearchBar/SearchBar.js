@@ -13,7 +13,7 @@ function SearchBar() {
   });
   const [users, setUsers] = useState("");
   const dispatch = useDispatch();
-  const [searchedUser, setSearchedUser] = useState([]);
+  const [searchedUser, setSearchedUser] = useState();
 
   useEffect(() => {
     axios

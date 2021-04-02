@@ -1,17 +1,23 @@
 import { Avatar } from "@material-ui/core";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Userid } from "../../../../Redux/Action";
+
 import "./chatUser.css";
-
-function ChatGroup({ group }) {
-  const image = group.group_image;
-
+import { groupChat } from "../../../../Redux/Action";
+import { useHistory } from "react-router-dom";
+function ChatGroup({ groups }) {
+  const history = useHistory();
+  const image = groups.group_image;
+  const dispatch = useDispatch();
+  const data = useSelector((state) => {
+    return state;
+  });
   return (
     <div
       className="chatUser"
       onClick={() => {
-        console.log(group);
+        dispatch(groupChat(groups));
+        history.push("./group");
       }}
     >
       <div className="chatUser__picture">
@@ -20,7 +26,7 @@ function ChatGroup({ group }) {
         />
       </div>
       <div className="chatUser__details">
-        <h3>{group.group_name}</h3>
+        <h3>{groups.group_name}</h3>
       </div>
     </div>
   );

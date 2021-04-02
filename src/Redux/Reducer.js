@@ -1,7 +1,8 @@
 const initstate = {
   user: null,
   chat: null,
-  Auth: null
+  Auth: null,
+  groupChat:null
 };
 export default function Reducer(state = initstate, action) {
   switch (action.type) {
@@ -10,8 +11,10 @@ export default function Reducer(state = initstate, action) {
     case "chatting":
       return { ...state,chat: action.payload };
     case 'Auth':
-      return {...state,Auth: action.payload}      
-    default:
-      return state;
+      return {...state,Auth: action.payload} 
+    case 'groupChat':
+      return {...state,groupChat: action.payload}      
+       default:
+          return state;
   }
 }

@@ -2,12 +2,11 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import "./signOut.css";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+
 function SignOut({ setMenuOpen }) {
   const data = useSelector((state) => {
     return state;
   });
-  const history = useHistory();
   const signout = () => {
     localStorage.removeItem("user", data.Auth);
     window.location = "/";
@@ -21,7 +20,13 @@ function SignOut({ setMenuOpen }) {
 
       <div className="signOut__Btn">
         <Button onClick={signout}>Yes</Button>
-        <Button>No</Button>
+        <Button
+          onClick={() => {
+            setMenuOpen(false);
+          }}
+        >
+          No
+        </Button>
       </div>
     </div>
   );

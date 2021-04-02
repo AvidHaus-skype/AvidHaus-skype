@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Avatar, Button } from "@material-ui/core";
 
 import Modal from "react-modal";
 import "./user.css";
 
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import SignOut from "./SignOut/SignOut";
 
@@ -14,7 +13,6 @@ function User() {
   const data = useSelector((state) => {
     return state;
   });
-  const dispatch = useDispatch();
 
   const [isMenuOpen, setMenuOpen] = useState(false);
   const image = data.Auth.data.user_picture;
@@ -29,8 +27,9 @@ function User() {
         <div className="onlineStatus"></div>
       </div>
 
-      <div className="signOut">
+      <div>
         <Button
+          className="signOut"
           onClick={() => {
             setMenuOpen(true);
           }}

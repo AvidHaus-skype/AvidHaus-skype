@@ -29,6 +29,7 @@
 .user .signOut {
   border: 1px solid black;
   border-radius: 20px;
+  width: 110px;
 }
 .user__info .onlineStatus {
   width: 10px;

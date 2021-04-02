@@ -27,8 +27,9 @@ function SearchBar() {
               user_id : data.Auth.data.user_id
             }).then(res =>{
               // console.log(res.data.records)
+              const response = res.data.records
               dispatch(
-                UserSearch(res.data.records)
+                UserSearch({response})
               )
             }).catch(err=>{
               console.log(err)

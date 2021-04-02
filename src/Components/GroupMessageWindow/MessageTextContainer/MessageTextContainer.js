@@ -18,15 +18,15 @@ function MessageTextContainer() {
     }).then(res=>{
       setGroupchat(res.data.messages)
     })
-  },[])
-  console.log(groupchat)
+  },[data.groupChat.group_id])
+  // console.log(groupchat)
   return (
     <div className="messageTextContainer">
       {groupchat.map((item , id)=>{
-        return <UserMessage chat={item} key={id} />
+        return <UserMessage chatgroup={item} key={id} />
       })}
     </div>
   );
 }
-{/*  */}
+
 export default MessageTextContainer;

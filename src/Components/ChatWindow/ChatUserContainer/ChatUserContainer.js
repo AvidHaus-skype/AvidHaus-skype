@@ -7,14 +7,17 @@ import ChatGroup from "./ChatGroup/ChatGroup";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import SearchedUser from "./SearchedUser/SearchedUser";
 function ChatUserContainer() {
   const data = useSelector((state) => {
     return state;
   });
+  console.log(data.userSearch);
   const [ContactData, setContactData] = useState([]);
   const [groupList, setGroupList] = useState([]);
   const [people, setPeople] = useState(false);
   const [tabValue, setTabValue] = useState(0);
+
   useEffect(() => {
     return axios
       .post("http://192.168.0.96:401/bwccrm/getContactsUser", {
@@ -22,7 +25,7 @@ function ChatUserContainer() {
         user_id: data.Auth.data.user_id,
       })
       .then((res) => {
-        setContactData(res.data.contacts);
+        setContactData(res.data);
       });
   }, []);
 
@@ -43,6 +46,7 @@ function ChatUserContainer() {
   const handleTab = (event, newValue) => {
     setTabValue(newValue);
   };
+
   return (
     <div className="chatUserContainer">
       <Paper position="static" style={{ margin: "0px 5px" }}>
@@ -64,7 +68,9 @@ function ChatUserContainer() {
       {people ? (
         <div className="chatUserList">
           {!ContactData.last_msg
-            ? ContactData.map((item, id) => <ChatUser users={item} key={id} />)
+            ? ContactData.contacts.map((item, id) => (
+                <ChatUser users={item} key={id} />
+              ))
             : "NO CHATS ARE AVAILABLE"}
         </div>
       ) : (
@@ -75,6 +81,11 @@ function ChatUserContainer() {
         </div>
       )}
     </div>
+    // <div className="searchedUser">
+    //   {/* {data.userSearch.map((searchedUser, id) => {
+    //     return <SearchedUser searchedUser={searchedUser} key={id} />;
+    //   })} */}
+    // </div>
   );
 }
 

@@ -4,22 +4,20 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./chatUser.css";
 import { groupChat } from "../../../../Redux/Action";
-
-function ChatGroup({groups}) {
+import { useHistory } from "react-router-dom";
+function ChatGroup({ groups }) {
+  const history = useHistory();
   const image = groups.group_image;
-  const dispatch =useDispatch()
-  // const switchToConve = (e) => {
-  //   e.preventDefault();
-  //   dispatch(Userid(props.users));
-  // };
+  const dispatch = useDispatch();
+  const data = useSelector((state) => {
+    return state;
+  });
   return (
     <div
       className="chatUser"
       onClick={() => {
-        dispatch(
-          groupChat(groups)
-        )
-        // console.log(group)
+        dispatch(groupChat(groups));
+        history.push("./group");
       }}
     >
       <div className="chatUser__picture">

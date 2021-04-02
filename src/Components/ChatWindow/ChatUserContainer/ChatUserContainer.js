@@ -4,6 +4,7 @@ import "./chatUserContainer.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import ChatGroup from "./ChatGroup/ChatGroup";
+import { Link } from "@material-ui/core";
 function ChatUserContainer() {
   const data = useSelector((state) => {
     return state;
@@ -19,7 +20,7 @@ function ChatUserContainer() {
       })
       .then((res) => {
         setContactData(res.data.contacts);
-        console.log('available contacts',res.data.contacts);
+        console.log("available contacts", res.data.contacts);
       });
   }, []);
 
@@ -31,7 +32,7 @@ function ChatUserContainer() {
       })
       .then((res) => {
         setGroupList(res.data);
-        console.log('available groups',res.data);
+        console.log("available groups", res.data);
       })
       .catch((err) => {
         console.log("group error", err);
@@ -40,13 +41,12 @@ function ChatUserContainer() {
 
   return (
     <div className="chatUserContainer">
-       {!ContactData.last_msg
+      {!ContactData.last_msg
         ? ContactData.map((item, id) => <ChatUser users={item} key={id} />)
         : "NO CHATS ARE AVAILABLE"}
       {groupList.map((list, id) => {
         return <ChatGroup groups={list} key={id} />;
       })}
-     
     </div>
   );
 }

@@ -30,7 +30,15 @@ function Login() {
   };
   return (
     <div className="login">
-      <div className="login__container">
+      <form
+        className="login__container"
+        onSubmit={
+          (() => dispatch(LoginNow({ Email, Password })),
+          () => {
+            window.location = "/";
+          })
+        }
+      >
         <img src={logo} alt="" />
 
         <div className="login__field">
@@ -53,7 +61,7 @@ function Login() {
 
         <div className="loginBtn">
           <Button
-            onClick={() => dispatch(LoginNow({ Email, Password }))}
+            type="submit"
             style={{
               background: "#feb318",
               color: "#fff",
@@ -64,7 +72,7 @@ function Login() {
             Login
           </Button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

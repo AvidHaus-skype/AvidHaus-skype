@@ -3,8 +3,9 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Userid } from "../../../../Redux/Action";
 import "./chatUser.css";
-
+import { useHistory } from "react-router-dom";
 function ChatUser(props) {
+  const history = useHistory();
   const data = useSelector((state) => {
     return state;
   });
@@ -15,6 +16,7 @@ function ChatUser(props) {
   const switchToConve = (e) => {
     e.preventDefault();
     dispatch(Userid(props.users));
+    history.push("/user");
   };
   return (
     <div className="chatUser" onClick={switchToConve}>

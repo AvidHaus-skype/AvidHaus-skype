@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 
 function MessageInput() {
   const [message, setMessage] = useState("");
-  const [pushermessage, setpushermessage] = useState("");
   const [attach, setAttach] = useState();
   const data=useSelector(state=>{return state})
     

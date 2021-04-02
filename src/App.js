@@ -10,12 +10,13 @@ function App() {
     return state;
   });
  const dispatch = useDispatch();
+                // console.log(data.groupChat)
   // const auth= ;
 
     useEffect(()=>{
       {dispatch(Auth(JSON.parse(localStorage.getItem("user"))))}
     },[])
-    // console.log('complete auth data',data.Auth.message)
+    // console.log('complete group data',data.Auth.message)
     return( 
             <div className="App">
               {data.Auth? <MainWindow /> : <Login />}

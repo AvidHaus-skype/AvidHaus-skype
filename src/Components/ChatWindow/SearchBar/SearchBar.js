@@ -3,20 +3,38 @@ import { Input } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 import "./searchBar.css";
+import axios from "axios";
+import {useSelector} from 'react-redux'
+
 function SearchBar() {
-  const [user, setUser] = useState("");
+  const data=useSelector(state=>{return state})
+  // console.log(data.Auth.data.user_name)
+  const [users, setUsers] = useState("");
+  // console.log(data.Auth.data.user_name)
+  //
+  
   return (
     <div className="searchBar">
       <Input
-        value={user}
+        value={users}
         onChange={(e) => {
-          setUser(e.target.value);
+          setUsers(e.target.value);
+
+          axios.post('http://192.168.0.96:401/bwccrm/searchUser',{
+              loginuser_name : data.Auth.data.user_name,
+              input : users,
+              user_id : data.Auth.data.user_id
+            }).then(res =>{
+              console.log(res.data.records)
+            }).catch(err=>{
+              console.log(err)
+            })
         }}
       />
-      {user ? (
+      {users ? (
         <ClearIcon
           onClick={() => {
-            setUser("");
+            setUsers('');
           }}
         />
       ) : (

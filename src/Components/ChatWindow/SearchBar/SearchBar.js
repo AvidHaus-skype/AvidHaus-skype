@@ -24,7 +24,7 @@ function SearchBar() {
       })
       .then((res) => {
         setSearchedUser(res.data.records);
-        dispatch(UserSearch([searchedUser]));
+        dispatch(UserSearch(searchedUser));
       })
       .catch((err) => {
         console.log(err);

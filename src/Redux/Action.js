@@ -13,6 +13,7 @@ export function LoginNow({ Email, Password }) {
           type: "Login",
           payload: res.data,
         });
+        window.location = "/";
       });
   };
 }

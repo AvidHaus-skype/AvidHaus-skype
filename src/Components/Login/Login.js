@@ -15,7 +15,7 @@ function Login() {
   const [Password, setPassword] = useState("");
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkPassword, setCheckPassword] = useState(false);
-
+  const loginData = () => {};
   const handleLogin = () => {
     if (Email === "") {
       setCheckEmail(true);
@@ -30,15 +30,7 @@ function Login() {
   };
   return (
     <div className="login">
-      <form
-        className="login__container"
-        onSubmit={
-          (() => dispatch(LoginNow({ Email, Password })),
-          () => {
-            window.location = "/";
-          })
-        }
-      >
+      <div className="login__container">
         <img src={logo} alt="" />
 
         <div className="login__field">
@@ -61,6 +53,7 @@ function Login() {
 
         <div className="loginBtn">
           <Button
+            onClick={() => dispatch(LoginNow({ Email, Password }))}
             type="submit"
             style={{
               background: "#feb318",
@@ -72,7 +65,7 @@ function Login() {
             Login
           </Button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

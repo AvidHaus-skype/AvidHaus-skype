@@ -4,14 +4,15 @@ import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 import "./searchBar.css";
 import axios from "axios";
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
+import {UserSearch} from '../../../Redux/Action'
 
 function SearchBar() {
   const data=useSelector(state=>{return state})
   // console.log(data.Auth.data.user_name)
   const [users, setUsers] = useState("");
   // console.log(data.Auth.data.user_name)
-  //
+  const dispatch =useDispatch()
   
   return (
     <div className="searchBar">
@@ -25,7 +26,10 @@ function SearchBar() {
               input : users,
               user_id : data.Auth.data.user_id
             }).then(res =>{
-              console.log(res.data.records)
+              // console.log(res.data.records)
+              dispatch(
+                UserSearch(res.data.records)
+              )
             }).catch(err=>{
               console.log(err)
             })

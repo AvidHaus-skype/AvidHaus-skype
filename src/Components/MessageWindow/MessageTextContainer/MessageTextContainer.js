@@ -11,23 +11,22 @@ function MessageTextContainer() {
     return state;
   });
   const [chattingdata, setchattingdata] = useState([]);
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
-  // useEffect(() => {
-  //   var pusher = new Pusher("f30ce11a6ce537110adc", {
-  //     cluster: "ap2",
-  //     useTLS: true,
-  //   });
-
+  //  useEffect(() => {
+    
   //   Pusher.logToConsole = true;
-
-  //   var channel = pusher.subscribe("bwccrm-chat");
-  //   channel.bind("messaging", function (data) {
-  //     // alert(JSON.stringify(data));
-  //     const message_array = chattingdata;
-  //     message_array.push(data);
-  //     setchattingdata(message_array);
+  //   var pusher = new Pusher('f30ce11a6ce537110adc',{
+  //     cluster: 'ap2'
   //   });
+  //   var chatRoom = pusher.subscribe('bwccrm-chat');
+  //   chatRoom.bind('pusher:subscription_succeeded', retrieveHistory)  
+    
+  //   function retrieveHistory() {
+  //     axios.post('http://192.168.0.96:401/bwccrm/fetchMessage').success(function(response) {
+  //       JSON.stringify(response)
+  //     });
+  //   }
   // }, []);
 
   useEffect(() => {

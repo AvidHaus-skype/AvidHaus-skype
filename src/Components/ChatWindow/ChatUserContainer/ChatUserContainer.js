@@ -12,7 +12,6 @@ function ChatUserContainer() {
   const data = useSelector((state) => {
     return state;
   });
-  console.log(data.userSearch);
   const [ContactData, setContactData] = useState([]);
   const [groupList, setGroupList] = useState([]);
   const [people, setPeople] = useState(false);
@@ -28,7 +27,7 @@ function ChatUserContainer() {
         setContactData(res.data);
       });
   }, []);
-
+  // console.log(ContactData) 
   useEffect(() => {
     return axios
       .post("http://192.168.0.96:401/bwccrm/getUserGroups", {

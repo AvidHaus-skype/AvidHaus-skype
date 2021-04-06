@@ -5,16 +5,20 @@ import logo from "../../Assets/Bizz World Logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { LoginNow } from "../../Redux/Action";
 
+
 function Login() {
   const data = useSelector((state) => {
     return state;
   });
+  
   const dispatch = useDispatch();
 
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [checkEmail, setCheckEmail] = useState(false);
   const [checkPassword, setCheckPassword] = useState(false);
+  
+
   const loginData = () => {};
   const handleLogin = () => {
     if (Email === "") {
@@ -28,6 +32,7 @@ function Login() {
       setCheckPassword(false);
     }
   };
+  console.log(data.user)
   return (
     <div className="login">
       <div className="login__container">
@@ -65,6 +70,7 @@ function Login() {
             Login
           </Button>
         </div>
+        
       </div>
     </div>
   );

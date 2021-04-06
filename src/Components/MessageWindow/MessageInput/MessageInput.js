@@ -5,15 +5,32 @@ import AttachmentIcon from "@material-ui/icons/Attachment";
 import { Button } from "@material-ui/core";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Pusher from "pusher-js";
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
 
 function MessageInput() {
   const [message, setMessage] = useState("");
   const [attach, setAttach] = useState();
+  const [chattingdata,setchattingdata]=useState('')
   const data=useSelector(state=>{return state})
+  // bwccrm-chat Messaging
+  // useEffect(() => {
     
+  //   Pusher.logToConsole = true;
 
+  //   var pusher = new Pusher('f30ce11a6ce537110adc', {
+  //     cluster: 'ap2'
+  //   });
+
+  //   var channel = pusher.subscribe('bwccrm-chat');
+  //     channel.bind('Messaging', function(data) {
+        
+  //    });
+  // }, [message]);
+ 
   const SendMessage = () => {
+    
     return axios
       .post("http://192.168.0.96:401/bwccrm/sendMessage", {
         user_id: data.Auth.data.user_id,
@@ -22,7 +39,7 @@ function MessageInput() {
         message_body: message,
       })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       });
   };
 

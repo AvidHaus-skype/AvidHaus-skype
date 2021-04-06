@@ -4,29 +4,23 @@ import Login from "./Components/Login/Login";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Auth } from "../src/Redux/Action";
-import { BrowserRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 function App() {
+  const history = useHistory();
+  useEffect(() => {
+    history.push("/");
+  }, []);
   const data = useSelector((state) => {
     return state;
   });
   const dispatch = useDispatch();
-  // const auth= ;
 
   useEffect(() => {
     dispatch(Auth(JSON.parse(localStorage.getItem("user"))));
   }, []);
 
-  return (
-    <div className="App">
-      {data.Auth ? (
-        <BrowserRouter>
-          <MainWindow />
-        </BrowserRouter>
-      ) : (
-        <Login />
-      )}
-    </div>
-  );
+  return <div className="App">{data.Auth ? <MainWindow /> : <Login />}</div>;
 }
 
 export default App;

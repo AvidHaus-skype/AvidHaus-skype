@@ -1,16 +1,18 @@
 import { Avatar } from "@material-ui/core";
 import React, { useState } from "react";
 
-function SearchedUser({ searchedUser }) {
-  console.log(searchedUser);
+function SearchedUser({ user }) {
+  const img = user.user_picture;
   return (
     <div className="chatUser">
       <div className="chatUser__picture">
-        <Avatar src="" />
+        <Avatar
+          src={`http://192.168.0.96:401/bwccrm/public/userpicture/${img}`}
+        />
       </div>
       <div className="chatUser__details">
-        <h3>{searchedUser.user_name}</h3>
-        <p>{searchedUser.user_loginstatus}</p>
+        <h3>{user.user_name}</h3>
+        <p></p>
       </div>
     </div>
   );

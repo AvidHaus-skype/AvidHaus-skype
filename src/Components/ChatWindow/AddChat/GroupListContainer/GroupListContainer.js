@@ -3,6 +3,7 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Button, Input, Checkbox, Avatar } from "@material-ui/core";
 import "./groupListContainer.css";
 import axios from "axios";
+
 import { useSelector } from "react-redux";
 function GroupMemebers({ members, userId, setUserId }) {
   const [selectMember, setSelectMember] = useState(false);
@@ -75,7 +76,6 @@ function GroupListContainer({
     axios
       .post("http://192.168.0.96:401/bwccrm/createGroup", formData)
       .then((res) => {
-        console.log(res);
         alert(res.data.message);
       })
       .catch((err) => {

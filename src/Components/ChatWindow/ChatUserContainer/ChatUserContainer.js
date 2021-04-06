@@ -8,13 +8,14 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import SearchedUser from "./SearchedUser/SearchedUser";
+
 function ChatUserContainer() {
   const data = useSelector((state) => {
     return state;
   });
   const [ContactData, setContactData] = useState([]);
   const [groupList, setGroupList] = useState([]);
-  const [people, setPeople] = useState(false);
+  const [people, setPeople] = useState(true);
   const [tabValue, setTabValue] = useState(0);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function ChatUserContainer() {
         user_id: data.Auth.data.user_id,
       })
       .then((res) => {
-        setContactData(res.data);
+        setContactData(res.data.contacts);
       });
   }, []);
   // console.log(ContactData) 
@@ -45,46 +46,55 @@ function ChatUserContainer() {
   const handleTab = (event, newValue) => {
     setTabValue(newValue);
   };
-
   return (
-    <div className="chatUserContainer">
-      <Paper position="static" style={{ margin: "0px 5px" }}>
-        <Tabs indicatorColor="primary" value={tabValue} onChange={handleTab}>
-          <Tab
-            label="Groups"
-            onClick={() => {
-              setPeople(false);
-            }}
-          />
-          <Tab
-            label="People"
-            onClick={() => {
-              setPeople(true);
-            }}
-          />
-        </Tabs>
-      </Paper>
-      {people ? (
-        <div className="chatUserList">
-          {!ContactData.last_msg
-            ? ContactData.contacts.map((item, id) => (
-                <ChatUser users={item} key={id} />
-              ))
-            : "NO CHATS ARE AVAILABLE"}
+    <div className="container">
+      {!data.searchData ? (
+        <div className="chatUserContainer">
+          <Paper position="static" style={{ margin: "5px" }}>
+            <Tabs
+              indicatorColor="primary"
+              value={tabValue}
+              onChange={handleTab}
+            >
+              <Tab
+                label="People"
+                onClick={() => {
+                  setPeople(true);
+                }}
+              />
+              <Tab
+                label="Groups"
+                onClick={() => {
+                  setPeople(false);
+                }}
+              />
+            </Tabs>
+          </Paper>
+
+          {people ? (
+            <div className="chatUserList">
+              {!ContactData.last_msg
+                ? ContactData.map((item, id) => (
+                    <ChatUser users={item} key={id} />
+                  ))
+                : "NO CHATS ARE AVAILABLE"}
+            </div>
+          ) : (
+            <div className="groupList">
+              {groupList.map((list, id) => {
+                return <ChatGroup groups={list} key={id} />;
+              })}
+            </div>
+          )}
         </div>
       ) : (
-        <div className="groupList">
-          {groupList.map((list, id) => {
-            return <ChatGroup groups={list} key={id} />;
+        <div className="searchedUser">
+          {data.userSearch.map((user, id) => {
+            return <SearchedUser user={user} key={id} />;
           })}
         </div>
       )}
     </div>
-    // <div className="searchedUser">
-    //   {/* {data.userSearch.map((searchedUser, id) => {
-    //     return <SearchedUser searchedUser={searchedUser} key={id} />;
-    //   })} */}
-    // </div>
   );
 }
 

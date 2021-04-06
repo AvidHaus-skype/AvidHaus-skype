@@ -5,6 +5,8 @@ const initstate = {
   groupChat: null,
   userSearch: null,
   searchData: null,
+  searchedUser: null,
+  messages: null,
 };
 export default function Reducer(state = initstate, action) {
   switch (action.type) {
@@ -20,6 +22,8 @@ export default function Reducer(state = initstate, action) {
       return { ...state, userSearch: action.payload };
     case "searchData":
       return { ...state, searchData: action.payload };
+    case "messages":
+      return { ...state, messages: action.payload };
     default:
       return state;
   }

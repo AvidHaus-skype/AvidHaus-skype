@@ -7,7 +7,6 @@ function UserMessage(props) {
     return state;
   });
   const admin = data.Auth.data.user_id;
-  
   const image = props.sender.from_userpicture;
   return (
     <div

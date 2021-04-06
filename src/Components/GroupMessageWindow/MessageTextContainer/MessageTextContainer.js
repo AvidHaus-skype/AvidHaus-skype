@@ -8,7 +8,6 @@ function MessageTextContainer() {
   const data = useSelector((state) => {
     return state;
   });
-  const dispatch = useDispatch();
   const [groupchat, setGroupchat] = useState([]);
 
   useEffect(() => {

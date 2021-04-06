@@ -1,10 +1,12 @@
 import React from "react";
 import "./messageWindowHeader.css";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 
 function MessageWindowHeader() {
-  const data = useSelector(state=>{return state})
-  
+  const data = useSelector((state) => {
+    return state;
+  });
+
   return (
     <div className="MessageWindowHeader">
       <div className="userName">

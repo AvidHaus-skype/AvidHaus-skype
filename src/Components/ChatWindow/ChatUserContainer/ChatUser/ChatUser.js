@@ -6,15 +6,12 @@ import "./chatUser.css";
 import { useHistory } from "react-router-dom";
 function ChatUser(props) {
   const history = useHistory();
-  const data = useSelector((state) => {
-    return state;
-  });
+
   const dispatch = useDispatch();
 
   const image = props.users.user_picture;
 
-  const switchToConve = (e) => {
-    e.preventDefault();
+  const switchToConve = () => {
     dispatch(Userid(props.users));
     history.push("/user");
   };

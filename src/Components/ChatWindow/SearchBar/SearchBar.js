@@ -5,15 +5,15 @@ import ClearIcon from "@material-ui/icons/Clear";
 import "./searchBar.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { UserSearch } from "../../../Redux/Action";
+import { UserSearch, searchData } from "../../../Redux/Action";
 
 function SearchBar() {
   const data = useSelector((state) => {
     return state;
   });
   const [users, setUsers] = useState("");
+  const [searchedUser, setSearchedUser] = useState([]);
   const dispatch = useDispatch();
-  const [searchedUser, setSearchedUser] = useState();
 
   useEffect(() => {
     axios
@@ -38,12 +38,14 @@ function SearchBar() {
         value={users}
         onChange={(e) => {
           setUsers(e.target.value);
+          dispatch(searchData(e.target.value));
         }}
       />
       {users ? (
         <ClearIcon
           onClick={() => {
             setUsers("");
+            dispatch(searchData(""));
           }}
         />
       ) : (

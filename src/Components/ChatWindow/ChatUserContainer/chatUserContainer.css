@@ -1,8 +1,17 @@
 :root {
   --grayColor: #eeeeee;
 }
+
+.container {
+  height: 70vh;
+  background: var(--grayColor);
+}
 .chatUserContainer {
   height: 100%;
+}
+.groupList,
+.chatUserList,
+.searchedUser {
+  height: 100%;
   overflow-y: scroll;
-  background: var(--grayColor);
 }

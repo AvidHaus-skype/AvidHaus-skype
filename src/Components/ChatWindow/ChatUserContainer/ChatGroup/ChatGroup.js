@@ -17,7 +17,7 @@ function ChatGroup({ groups }) {
       className="chatUser"
       onClick={() => {
         dispatch(groupChat(groups));
-        history.push("./group");
+        history.push("/group");
       }}
     >
       <div className="chatUser__picture">

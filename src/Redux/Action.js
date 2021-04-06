@@ -41,11 +41,19 @@ export function groupChat(group) {
     });
   };
 }
-export function UserSearch({ response }) {
+export function UserSearch(response) {
   return function (dispatch) {
     dispatch({
       type: "userSearch",
       payload: response,
+    });
+  };
+}
+export function searchData(searchData) {
+  return function (dispatch) {
+    dispatch({
+      type: "searchData",
+      payload: searchData,
     });
   };
 }

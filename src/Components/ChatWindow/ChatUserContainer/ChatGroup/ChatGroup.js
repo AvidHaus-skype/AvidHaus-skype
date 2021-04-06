@@ -1,6 +1,5 @@
 import { Avatar } from "@material-ui/core";
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import "./chatUser.css";
 import { groupChat } from "../../../../Redux/Action";
@@ -9,9 +8,7 @@ function ChatGroup({ groups }) {
   const history = useHistory();
   const image = groups.group_image;
   const dispatch = useDispatch();
-  const data = useSelector((state) => {
-    return state;
-  });
+
   return (
     <div
       className="chatUser"

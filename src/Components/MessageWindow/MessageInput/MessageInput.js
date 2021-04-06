@@ -6,23 +6,32 @@ import { Button } from "@material-ui/core";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-
 function MessageInput() {
   const [message, setMessage] = useState("");
   const [attach, setAttach] = useState();
-  const data=useSelector(state=>{return state})
-    
+  const data = useSelector((state) => {
+    return state;
+  });
 
   const SendMessage = () => {
     return axios
-      .post("http://192.168.0.96:401/bwccrm/sendMessage", {
-        user_id: data.Auth.data.user_id,
-        loginuser_id: data.Auth.data.user_id,
-        message_to: data.chat.user_id,
-        message_body: message,
+      .all([
+        axios.post("http://192.168.0.96:401/bwccrm/sendMessage", {
+          user_id: data.Auth.data.user_id,
+          loginuser_id: data.Auth.data.user_id,
+          message_to: data.chat.user_id,
+          message_body: message,
+        }),
+        axios.post("http://192.168.0.96:401/bwccrm/getContactsUser", {
+          loginuser_id: data.Auth.data.user_id,
+          user_id: data.Auth.data.user_id,
+        }),
+      ])
+      .then((firstResponse, secondResponse) => {
+        console.log(secondResponse);
       })
-      .then((res) => {
-        console.log(res);
+      .catch((err) => {
+        console.log(err);
       });
   };
 

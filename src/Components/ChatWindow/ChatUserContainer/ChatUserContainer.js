@@ -90,7 +90,7 @@ function ChatUserContainer() {
       ) : (
         <div className="searchedUser">
           {data.userSearch.map((user, id) => {
-            return <SearchedUser user={user} key={id} />;
+            return <SearchedUser users={user} key={id} />;
           })}
         </div>
       )}

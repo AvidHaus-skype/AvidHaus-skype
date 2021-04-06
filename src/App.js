@@ -14,6 +14,7 @@ function App() {
   const data = useSelector((state) => {
     return state;
   });
+
   const dispatch = useDispatch();
 
   useEffect(() => {

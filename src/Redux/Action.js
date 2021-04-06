@@ -49,11 +49,21 @@ export function UserSearch(response) {
     });
   };
 }
+
 export function searchData(searchData) {
   return function (dispatch) {
     dispatch({
       type: "searchData",
       payload: searchData,
+    });
+  };
+}
+
+export function messages(chattingdata) {
+  return function (dispatch) {
+    dispatch({
+      type: "messages",
+      payload: chattingdata,
     });
   };
 }

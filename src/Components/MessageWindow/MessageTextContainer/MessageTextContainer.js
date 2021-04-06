@@ -39,7 +39,7 @@ function MessageTextContainer() {
       .then((res) => {
         setchattingdata(res.data.messages);
       });
-  }, []);
+  }, [data.chat.user_id]);
 
   return (
     <div className="messageTextContainer">

@@ -2,6 +2,7 @@
   "name": "message-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://192.168.0.96:401/bwccrm",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
